@@ -1,0 +1,74 @@
+﻿@model TCCESTOQUE.Models.VendaModel
+@{
+    ViewData["Title"] = "- Detalhes venda";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h2>Venda - @Model.DataVenda</h2>
+<h3>Cliente - @Model.Cliente.Nome</h3>
+<div>
+    <hr />
+    @{
+        string classe = "";
+        if (Model.Cancelada) { classe = "dark-thead"; }
+    }
+    <table class="tabela @classe my-4">
+        <thead>
+            <tr>
+                <th class="mb-visivel">
+                    Código
+                </th>
+                <th class="mb-visivel">
+                    Produto
+                </th>
+                <th class="mb-visivel">
+                    Quantidade
+                </th>
+                <th>
+                    Preço
+                </th>
+                <th class="mb-visivel">
+                    Valor
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int numero = 1;
+                foreach (var item in Model.Itens)
+                {
+                    if (item.VendaId == Model.VendaId)
+                    {
+                        <tr>
+                            <td class="mb-visivel">
+                                @numero
+                            </td>
+                            <td class="mb-visivel">
+                                @Html.DisplayFor(modelItem => item.Produto.Nome)
+                            </td>
+                            <td class="mb-visivel">
+                                @Html.DisplayFor(modelItem => item.Quantidade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrecoProduto)
+                            </td>
+                            <td class="mb-visivel">
+                                @( (item.PrecoProduto * item.Quantidade).ToString("###,##0.00") )
+                            </td>
+
+                        </tr>
+                        numero += 1;
+                    }
+                }
+            }
+            <tr>
+                <td class="opcoes">Total: R$@Model.Valor()</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a class="btn btn-cinza" asp-action="Index">
+        Voltar
+    </a>
+</div>

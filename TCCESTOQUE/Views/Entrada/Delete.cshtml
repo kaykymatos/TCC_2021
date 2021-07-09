@@ -1,0 +1,71 @@
+﻿@model TCCESTOQUE.Models.EntradaModel
+
+@{
+    ViewData["Title"] = "- Excluir entrada";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h1>Excluir</h1>
+
+<h3>Tem certeza que deseja excluir essa entrada de estoque?</h3>
+<hr />
+<div>
+    <dl class="descricao dt-dark">
+        <div>
+            <dt>
+                Data de entrada
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataEntrada)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fornecedor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fornecedor.NomeFantasia)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Produto)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Produto.Nome)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Quantidade em @Model.UnidadeMedida
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Quantidade)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Preço por @Model.UnidadeMedida
+            </dt>
+            <dd>
+                R$ @Html.DisplayFor(model => model.Valor)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Custo por @Model.UnidadeMedida
+            </dt>
+            <dd>
+                R$ @Html.DisplayFor(model => model.Custo)
+            </dd>
+        </div>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EntradaId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a class="btn btn-cinza" asp-action="Index">
+            Voltar
+        </a>
+    </form>
+</div>

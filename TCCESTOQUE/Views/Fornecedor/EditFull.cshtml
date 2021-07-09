@@ -1,0 +1,124 @@
+﻿@using TCCESTOQUE.Models.Enum
+@model TCCESTOQUE.ViewModel.FornecedorEnderecoViewModel;
+
+@{
+    ViewData["Title"] = "- Editar fornecedor";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+<div id="moldura">
+    <form class="container" asp-action="EditFull">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="FornecedorId" hidden />
+        <input asp-for="EnderecoId" hidden />
+        <input asp-for="VendedorId" value="@ViewBag.usuarioId" hidden />
+        <h1>
+            Editar fornecedor
+        </h1>
+        <div class="form-group">
+            <label asp-for="NomeFantasia" class="obrigatorio">Nome fantasia</label>
+            <input class="form-control" asp-for="NomeFantasia" />
+            <span asp-validation-for="NomeFantasia" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label asp-for="RazaoSocial" class="obrigatorio">Razão Social</label>
+                <input class="form-control" asp-for="RazaoSocial" />
+                <span asp-validation-for="RazaoSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Cnpj" class="obrigatorio">CNPJ</label>
+                <input class="form-control" asp-for="Cnpj" data-mask="00.000.000/0000-00" />
+                <span asp-validation-for="Cnpj" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Email" class="obrigatorio">E-mail</label>
+                <input class="form-control" asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Telefone"></label>
+                <input class="form-control" asp-for="Telefone" data-mask="(00)00000-0000" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Cep" class="obrigatorio">CEP</label>
+                <input class="form-control" asp-for="Cep" data-mask="00000-000" id="cep" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Logradouro" class="obrigatorio">Rua</label>
+                <input class="form-control" asp-for="Logradouro" id="logradouro" />
+                <span asp-validation-for="Logradouro" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="Numero" class="obrigatorio"></label>
+                <input class="form-control" type="text" asp-for="Numero" data-mask="000000" id="numero" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Bairro" class="obrigatorio"></label>
+                <input class="form-control" asp-for="Bairro" id="bairro" />
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Localidade" class="obrigatorio">Cidade</label>
+                <input class="form-control" asp-for="Localidade" id="localidade" />
+                <span asp-validation-for="Localidade" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Uf" class="obrigatorio">Unidade Federal</label>
+                <select asp-for="Uf" id="uf" class="col-md-12">
+                    <option selected value="0">Selecionar</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+                <span asp-validation-for="Uf" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Complemento"></label>
+            <textarea class="form-control" rows="1" asp-for="Complemento" id="complemento"></textarea>
+            <span asp-validation-for="Complemento" class="text-danger"></span>
+        </div>
+        <div class="row p-3">
+            <a asp-action="Index" class="btn-mold btn-cinza ml-0 mr-3">
+                Voltar
+            </a>
+            <input type="submit" value="Concluir" class="btn-mold btn-roxo m-0" />
+        </div>
+    </form>
+</div>
+<script src="~/js/CepScript.js" type="text/javascript"></script>

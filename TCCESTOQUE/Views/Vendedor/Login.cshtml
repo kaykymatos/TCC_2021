@@ -1,0 +1,45 @@
+﻿@model TCCESTOQUE.Models.VendedorModel
+
+@{
+    ViewData["Title"] = "- Login";
+}
+
+
+<div class="d-flex justify-content-center">
+    <div class="bg-white border-radius-1rem col-md-4">
+        <div class="text-center py-4">
+            <h3>Login</h3>
+        </div>
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="ml-3 text-danger"></div>
+            <input type="hidden" asp-for="VendedorId" />
+            <div class="form-group">
+                <div class="inputs-login">
+                    <label asp-for="Email" class="obrigatorio">E-mail</label>
+                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="inputs-login">
+                    <label asp-for="Senha" class="obrigatorio"></label>
+                    <input asp-for="Senha" class="form-control" placeholder="Senha" />
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="text-left">
+                <a asp-action="EsqueciSenha">Esqueceu a senha</a>
+            </div>
+            <div class="text-left">
+                <a asp-action="Create">Cadastrar</a>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-3">
+                <input class="btn-mold btn-roxo" type="submit" value="Entrar" />
+            </div>
+        </form>
+    </div>
+</div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

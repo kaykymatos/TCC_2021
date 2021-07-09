@@ -1,0 +1,45 @@
+﻿@model TCCESTOQUE.Models.EntradaModel
+
+@{
+    ViewData["Title"] = "- Adicionar produto";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+<div id="moldura">
+    <form class="container" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input hidden type="hidden" asp-for="VendedorId"  value="@ViewBag.usuarioId" />
+        <input hidden type="hidden" asp-for="ProdutoId"  value="@ViewBag.ProdutoId">
+        <h1>
+            Adicionar @ViewBag.ProdutoNome
+        </h1>
+        <div class="form-group">
+            <label asp-for="UnidadeMedida" >Unidade de medida: @ViewBag.Medida</label>
+            <input hidden type="hidden" asp-for="UnidadeMedida" value="@ViewBag.Medida" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Quantidade" ></label>
+            <input class="form-control" asp-for="Quantidade"  />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FornecedorId">Fornecedor</label>
+            <select class="form-control" asp-for="FornecedorId" asp-items="ViewBag.FornecedorId">
+                <option value="@Guid.Empty">SELECIONAR</option>
+            </select>
+            <span asp-validation-for="FornecedorId" class="text-danger"></span>
+        </div>
+        <div class="row p-3">
+            <a asp-controller="Produto" asp-action="Index" class="btn-mold btn-cinza ml-0 mr-3">
+                Voltar
+            </a>
+            <input type="submit" value="Adicionar" class="btn-mold btn-roxo m-0" />
+        </div>
+    </form>
+</div>
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

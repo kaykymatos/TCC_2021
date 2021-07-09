@@ -1,0 +1,75 @@
+﻿@model TCCESTOQUE.Models.VendaModel
+
+@{
+    ViewData["Title"] = "- Cancelar venda";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Você tem certeza que deseja cancelar essa venda?</h3>
+<div>
+    <hr />
+    <table class="tabela dark-thead my-4">
+        <thead>
+            <tr>
+                <th class="mb-visivel">
+                    Código
+                </th>
+                <th class="mb-visivel">
+                    Produto
+                </th>
+                <th class="mb-visivel">
+                    Quantidade
+                </th>
+                <th>
+                    Preço
+                </th>
+                <th class="mb-visivel">
+                    Valor
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int numero = 1;
+                foreach (var item in Model.Itens)
+                {
+                    if (item.VendaId == Model.VendaId)
+                    {
+                        <tr>
+                            <td class="mb-visivel">
+                                @numero
+                            </td>
+                            <td class="mb-visivel">
+                                @Html.DisplayFor(modelItem => item.Produto.Nome)
+                            </td>
+                            <td class="mb-visivel">
+                                @Html.DisplayFor(modelItem => item.Quantidade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrecoProduto)
+                            </td>
+                            <td class="mb-visivel">
+                                @( (item.PrecoProduto * item.Quantidade).ToString("###,##0.00") )
+                            </td>
+
+                        </tr>
+                        numero += 1;
+                    }
+                }
+            }
+            <tr>
+                <td class="opcoes">Total: R$@Model.Valor()</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VendaId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a class="btn btn-cinza" asp-action="Index">
+            Cancelar
+        </a>
+    </form>
+</div>

@@ -1,0 +1,91 @@
+﻿.descricao {
+    display: flex;
+    flex-direction: column;
+    grid-gap: .8rem;
+    margin-bottom: 4rem;
+}
+
+.desc-carrinho {
+    margin-bottom: 0rem !important;
+}
+
+.desc-carrinho div {
+    max-width: 100%;
+}
+
+dl, dt, dd{
+    margin: 0;
+    padding: 0;
+}
+
+.descricao div{
+    display:flex;
+    flex-direction: row;
+}
+
+.descricao div dt, .descricao div dd, .descricao dt, .descricao dd {
+    padding: 0.75rem !important;
+}
+
+.descricao div dt, .descricao dt {
+    flex: 1 1;
+    background-color: var(--light-purple);
+    color: ghostwhite;
+}
+
+.descricao div dd, .descricao dd {
+    flex: 3 1;
+    background-color: var(--white);
+}
+
+.dt-dark dt, .dt-dark div dt{
+    background-color: var(--gray) !important;
+}
+
+.dark-thead thead {
+    background-color: var(--gray) !important;
+}
+
+.separador {
+    margin: 2rem 0;
+}
+
+.no-margin{
+    margin: 0 !important;
+}
+
+.just-cont-center{
+    justify-content: center;
+}
+
+.just-cont-end{
+    justify-content:flex-end;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (max-width:600px){
+    .linha{
+        flex-direction: column !important;
+    }
+
+    .descricao div dt, .descricao dt {
+        flex:1.4 1;
+        color: ghostwhite;
+    }
+
+    .desc-carrinho div, .desc-carrinho{
+        max-width: 100%;
+    }
+}
+
+@media (max-width:320px) {
+    .descricao div dt, .descricao dt {
+        flex: 1.6 1;
+        color: ghostwhite;
+    }
+}

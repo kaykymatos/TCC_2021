@@ -1,0 +1,140 @@
+﻿.tabela {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tabela tbody tr, .tabela thead tr {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    padding: 0.75rem;
+}
+
+.tabela thead {
+    background-color: var(--light-purple);
+    color: ghostwhite;
+    border-radius: 8px 8px 0 0;
+}
+
+.tabela tbody {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 8px 8px;
+}
+
+.tabela thead tr {
+    border-bottom: 1px solid var(--lighter-gray) !important;
+}
+
+.tabela tbody tr {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--lighter-gray);
+}
+
+.tabela tbody tr:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.tabela tbody tr td, .tabela thead tr th {
+    flex: 1 2 5%;
+    flex-wrap: wrap;
+    margin: 0 .2rem;
+    overflow-wrap: anywhere;
+}
+
+.tabela tbody tr td:last-child, .tabela thead tr th:last-child {
+    flex: 1 2 5%;
+}
+
+.opcoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+}
+
+.opcoes a {
+    color: #5d5a56 !important;
+    cursor: pointer;
+}
+
+.opcoes a:hover {
+    color: rgba(0, 0, 0, 0.8) !important;
+    text-decoration: none !important;
+}
+
+.mb-visivel{
+    display:flex !important;
+}
+
+.mb-visivel-block {
+    display: block !important;
+}
+
+.cancelada {
+    background-color: var(--lighter-gray) !important;
+    color: var(--gray) !important;
+    border-bottom: 1px solid var(--white) !important;
+}
+
+.cancelada td a {
+    color: var(--gray) !important;
+}
+
+@media (max-width:600px) {
+    .tabela.mt-5{
+        margin: 1rem 0 0 0 !important;
+    }
+
+    .container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .opcoes {
+        grid-gap: 0.2rem;
+    }
+
+    .tabela tbody tr td, .tabela thead tr th {
+        display:none;
+    }
+
+    .tabela tbody tr td.mb-visivel, .tabela thead tr th.mb-visivel {
+        flex: 1 1 5%;
+    }
+
+    .tabela tbody tr td:first-child, .tabela thead tr th:first-child {
+        flex: 1 1;
+        text-align: left;
+    }
+
+    .tabela tbody tr td:last-child, .tabela thead tr th:last-child {
+        display:flex;
+        flex: .6 1 5%;
+    }
+}
+
+@media (max-width:320px) {
+    .tabela tbody tr td:first-child, .tabela thead tr th:first-child {
+        flex: 1.4 1 5%;
+        text-align: left;
+    }
+
+    .tabela tbody tr td:last-child, .tabela thead tr th:last-child {
+        display: flex;
+        flex: 1 1 5%;
+    }
+
+    .tabela tbody tr td.mb-visivel, .tabela thead tr th.mb-visivel {
+        flex: 1.1 1 5%;
+    }
+
+}
+
+@media (min-width:1024px) {
+    .opcoes span {
+        border-right: 1px solid;
+        height: 1.2rem;
+    }
+}

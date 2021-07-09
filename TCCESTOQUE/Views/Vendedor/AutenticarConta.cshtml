@@ -1,0 +1,13 @@
+﻿@model TCCESTOQUE.Models.EmailClienteModel
+@{
+    ViewData["Title"] = "- Autenticar conta";
+    Layout = "~/Views/Shared/_Layout-Externo.cshtml";
+}
+
+<h1>AutenticarConta</h1>
+
+<form asp-action="AutenticarConta">
+    <input asp-for="Id" type="hidden" value="@ViewBag.ContaId" />
+    <input class="btn btn-success btn-lg" type="submit" value="Autenticar"/>
+</form>
+

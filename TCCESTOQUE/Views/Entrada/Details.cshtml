@@ -1,0 +1,71 @@
+﻿@model TCCESTOQUE.Models.EntradaModel
+
+@{
+    ViewData["Title"] = "- Detalhes entrada";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h1>DETALHES</h1>
+
+<div>
+    <hr />
+    @{ 
+        string classe = "";
+        if (Model.Cancelada) { classe = "dt-dark"; }
+    }
+    <dl class="descricao @classe">
+        <div>
+            <dt>
+                Data de entrada
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataEntrada)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fornecedor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fornecedor.NomeFantasia)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Produto)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Produto.Nome)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Quantidade em @Model.UnidadeMedida
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Quantidade)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Preço por @Model.UnidadeMedida
+            </dt>
+            <dd>
+                R$ @Html.DisplayFor(model => model.Valor)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Custo por @Model.UnidadeMedida
+            </dt>
+            <dd>
+                R$ @Html.DisplayFor(model => model.Custo)
+            </dd>
+        </div>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-cinza" asp-action="Index">
+        Voltar
+    </a>
+</div>

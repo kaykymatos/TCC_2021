@@ -1,0 +1,14 @@
+{
+  "EmailServerAccount": {
+    "EmailOrigem": "estoqueestart@gmail.com",
+    "NomeOrigem": "E-STOCK",
+    "Server": "smtp.gmail.com",
+    "Port": "587",
+    "User": "estoqueestart@gmail.com",
+    "Pass": "",
+    "Retorno": "estoqueestart@gmail.com",
+    "Autentica": true,
+    "Ativo": true,
+    "EmailDebug": ""
+  }
+}

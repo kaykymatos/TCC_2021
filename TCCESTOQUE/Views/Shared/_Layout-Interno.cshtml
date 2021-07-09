@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-STOCK @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/formularios.css" rel="stylesheet" />
+    <link href="~/css/tabela.css" rel="stylesheet" />
+    <link href="~/css/geral.css" rel="stylesheet" />
+    <link href="~/css/descricao.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/home_logada.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body class="bg-white">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow p-0 mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img class="nav-logo" src="~/img/logo-box.png"/></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownFornecedor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Fornecedor
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-controller="Fornecedor" asp-action="CadastroFull">Cadastrar Fornecedor</a>
+                                <a class="dropdown-item" asp-controller="Fornecedor" asp-action="Index">Meus Fornecedores</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownProduto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Produto
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-controller="Produto" asp-action="Create">Cadastrar Produto</a>
+                                <a class="dropdown-item" asp-controller="Produto" asp-action="Index">Meu Estoque</a>
+                                <a class="dropdown-item" asp-controller="Entrada" asp-action="Index">Histórico de entradas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownFornecedor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cliente
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-controller="Cliente" asp-action="Create">Cadastrar Cliente</a>
+                                <a class="dropdown-item" asp-controller="Cliente" asp-action="Index">Meus Cliente</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownFornecedor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Venda
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-controller="Carrinho" asp-action="Details" asp-route-id="@ViewBag.usuarioId">Vender</a>
+                                <a class="dropdown-item" asp-controller="Venda" asp-action="Index">Minhas vendas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown mr-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Olá @ViewBag.usuario
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <form method="post">
+                                    <input type="submit" value="Desconectar" class="dropdown-item" asp-controller="Vendedor" asp-action="Logout" />
+                                </form>
+                            </div>
+                        </li>
+
+                        <li class="my-sm-2 py-0">
+                            <a class="btn-mold btn-roxo m-0" asp-controller="Carrinho" asp-action="Details" asp-route-id="@ViewBag.usuarioId">Vender</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer border-top box-shadow bg-white text-center">
+        &copy; 2021 - E-STOCK
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-mask-plugin/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

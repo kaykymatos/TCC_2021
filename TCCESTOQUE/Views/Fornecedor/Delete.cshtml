@@ -1,0 +1,135 @@
+﻿@model TCCESTOQUE.Models.FornecedorModel
+
+@{
+    ViewData["Title"] = "- Excluir fornecedor";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h1>EXCLUIR - @Model.NomeFantasia</h1>
+
+<h3>Você tem certeza que deseja excluir esse fornecedor?</h3>
+<p class="text-danger">@ViewBag.FornecedorErroExcluir</p>
+    
+<div>
+    <hr />
+    <dl class="descricao dt-dark my-4">
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeFantasia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeFantasia)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cnpj)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cnpj)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </div>
+        @if (Model.Telefone != null)
+        {
+            <div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Telefone)
+                </dd>
+            </div>
+        }
+        <div>
+            <dt>
+                Cep
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Cep)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Cidade
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Localidade) - @Html.DisplayFor(model => model.Endereco.Uf)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Bairro
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Bairro)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Endereço
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Logradouro)
+                @Html.DisplayFor(model => model.Endereco.Complemento)
+                @Html.DisplayFor(model => model.Endereco.Numero)
+            </dd>
+        </div>
+    </dl>
+    @if (ViewBag.FornecedorErroExcluir != null)
+    {
+    <hr class="my-4"/>
+    <table class="tabela dark-thead my-4">
+        <thead>
+            <tr>
+                <th class="mb-visivel">
+                    Produto
+                </th>
+                <th class="mb-visivel just-cont-center">
+                    Preço
+                </th>
+                <th class="mb-visivel just-cont-center">
+                    Custo
+                </th>
+                <th class="mb-visivel just-cont-end">
+                    Quantidade
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var entrada in Model.Entradas)
+        {
+            <tr>
+                <td class="mb-visivel">
+                    @Html.DisplayFor(modelProduto => entrada.Produto.Nome)
+                </td>
+                <td class="mb-visivel just-cont-center">
+                    @Html.DisplayFor(modelProduto => entrada.Valor)
+                </td>
+                <td class="mb-visivel just-cont-center">
+                    @Html.DisplayFor(modelProduto => entrada.Custo)
+                </td>
+                <td class="mb-visivel just-cont-end">
+                    @Html.DisplayFor(modelProduto => entrada.Quantidade) @Html.DisplayFor(modelProduto => entrada.UnidadeMedida)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    }
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="FornecedorId" value="@ViewBag.FornecedorId"/>
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a class="btn btn-cinza" asp-action="Index">
+            Voltar
+        </a>
+    </form>
+</div>

@@ -1,0 +1,125 @@
+﻿@using TCCESTOQUE.Models.Enum
+@model TCCESTOQUE.ViewModel.ClienteViewModel
+
+@{
+    ViewData["Title"] = "- Editar cliente";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+<div id="moldura">
+    <form class="container" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input hidden type="hidden" asp-for="ClienteId" />
+        <input hidden type="hidden" asp-for="EnderecoId" />
+        <input hidden type="hidden" asp-for="VendedorId" value="@ViewBag.usuarioId" />
+        <h1>
+            Editar cliente
+        </h1>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label asp-for="Nome" class="obrigatorio"></label>
+                <input class="form-control" asp-for="Nome" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Sexo" class="obrigatorio">Gênero</label>
+                <select class="form-control col-12" asp-for="Sexo" asp-items="Html.GetEnumSelectList<SexoEnum>()"></select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cpf">CPF</label>
+            <input class="form-control" asp-for="Cpf" data-mask="000.000.000-00" />
+            <span asp-validation-for="Cpf" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Email">E-mail</label>
+                <input class="form-control" asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Telefone" class="obrigatorio"></label>
+                <input class="form-control" asp-for="Telefone" data-mask="(00)00000-0000" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Cep" class="obrigatorio">CEP</label>
+                <input class="form-control" asp-for="Cep" data-mask="00000-000" id="cep" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Logradouro" class="obrigatorio">Rua</label>
+                <input class="form-control" asp-for="Logradouro" id="logradouro" />
+                <span asp-validation-for="Logradouro" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="Numero" class="obrigatorio"></label>
+                <input class="form-control" type="text" asp-for="Numero" data-mask="000000" id="numero" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Bairro" class="obrigatorio"></label>
+                <input class="form-control" asp-for="Bairro" id="bairro" />
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Localidade" class="obrigatorio">Cidade</label>
+                <input class="form-control" asp-for="Localidade" id="localidade" />
+                <span asp-validation-for="Localidade" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Uf" class="obrigatorio">Unidade Federal</label>
+                <select asp-for="Uf" id="uf" class="col-md-12">
+                    <option selected value="0">Selecionar</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+                <span asp-validation-for="Uf" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Complemento"></label>
+            <textarea class="form-control" rows="1" asp-for="Complemento" id="complemento"></textarea>
+            <span asp-validation-for="Complemento" class="text-danger"></span>
+        </div>
+        <div class="row p-3">
+            <a asp-action="Index" class="btn-mold btn-cinza ml-0 mr-3">
+                Cancelar
+            </a>
+            <input type="submit" value="Salvar" class="btn-mold btn-roxo m-0" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

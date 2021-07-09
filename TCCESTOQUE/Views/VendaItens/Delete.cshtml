@@ -1,0 +1,52 @@
+﻿@model TCCESTOQUE.Models.VendaItensModel
+
+@{
+    ViewData["Title"] = "- Remover item";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h3>Tem certeza que deseja remover esse item do carrinho</h3>
+<div>
+    <hr />
+    <dl class="descricao dt-dark">
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Produto)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Produto.Nome)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Quantidade)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Valor por @Model.Produto.UnidadeMedida
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PrecoProduto)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Custo por @Model.Produto.UnidadeMedida
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CustoProduto)
+            </dd>
+        </div>
+    </dl>        
+    <form asp-action="DeleteItemCarrinho">
+        <input type="hidden" asp-for="VendaItensId" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <a class="btn btn-cinza" asp-controller="Carrinho" asp-action="Details" asp-route-id="@Model.VendedorId">
+            Voltar
+        </a>
+    </form>
+</div>

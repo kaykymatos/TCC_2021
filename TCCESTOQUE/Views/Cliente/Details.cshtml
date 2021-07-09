@@ -1,0 +1,100 @@
+﻿@model TCCESTOQUE.Models.ClienteModel
+
+@{
+    ViewData["Title"] = "- Detalhes cliente";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h1>DETALHES</h1>
+
+<div>
+    <hr />
+    <dl class="descricao">
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+        </div>
+        @if (Model.Cpf != "" && Model.Cpf!= null)
+        {
+            <div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cpf)
+                </dd>
+            </div>
+        }
+        @if(Model.Email != "" && Model.Email != null)
+        { 
+            <div>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </div>
+        }
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Gênero
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sexo)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Cep
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Cep)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Cidade
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Localidade) - @Html.DisplayFor(model => model.Endereco.Uf)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Bairro
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Bairro)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                Endereço
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco.Logradouro)
+                @Html.DisplayFor(model => model.Endereco.Complemento)
+                @Html.DisplayFor(model => model.Endereco.Numero)
+            </dd>
+        </div>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-roxo" asp-action="Edit" title="Editar" asp-route-id="@Model.ClienteId">Editar</a> |
+    <a class="btn btn-cinza" asp-action="Index">
+        Voltar
+    </a>
+</div>

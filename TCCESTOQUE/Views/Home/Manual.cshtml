@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "- Manual";
+}
+<div class="container mt-2">
+    <h1 class="text-center">Manual</h1>
+
+    <h3 class="text-center">Bem vindo, nesta pagina você ira entender um pouco mais sobre o nosso site</h3>
+
+    <div>
+        <h4 class="titulosSobre">Tela de home</h4>
+        <p class="text-justify">Tela inicial para os usuários </p>
+        <img src="~/img/ImagensTelaSobre/home.png" alt="home page">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Tela de login</h4>
+        <p class="text-justify">
+            Nesta tela é onde o login do usuário/vendedor vai ser executado, tem um botão de login e um botão para voltar a home,
+            na página abaixo do formulário também há um link para a página de troca de senha.
+        </p>
+        <img src="~/img/ImagensTelaSobre/login.png" alt="tela de login">
+    </div>
+
+    <div>
+        <h4 class="titulosSobre">Tela de esqueci minha senha</h4>
+        <p class="text-justify">
+            Está é a tela de esqueci minha senha, a funcionabilidade é bem simples, basta colocar seu e-mail cadastrado e apertar
+            o botão enviar, após isso será enviado um e-mail para a sua conta, caso o e-mail seja invalido ou não esteja
+            cadastrado ele nem manda o e-mail, quando ocorre sucesso ao enviar o e-mail ele solta uma mensagem em verde
+            “verifique seu e-mail”, quando é um erro ele diz que a tentativa é invalida
+        </p>
+        <img src="~/img/ImagensTelaSobre/esqueci_a_senha.png" alt="esqueci minha senha">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Tela de alteração de senha</h4>
+        <p class="text-justify">
+            Nesta tela tem dois campos, no primeiro você informa sua nova senha, no segundo é o código que foi recebido no e-mail
+            junto ao link.
+        </p>
+        <img src="~/img/ImagensTelaSobre/alterarsenha.png" alt="alterar senha">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Tela de cadastro de usuário/vendedor</h4>
+        <p class="text-justify">
+            Nesta tela tem as funcionabilidades normais de um formulário de cadastro, onde alguns campos são obrigatórios e
+            outros não, Nome-E-mail-Senha-Cpf-Data de nascimento-Gênero são obrigatórios.
+        </p>
+        <img src="~/img/ImagensTelaSobre/cadastro_vendedor.png" alt="cadastrar vendedor">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Dashboard</h4>
+        <p class="text-justify">
+            Nesta tela tem um grafico que mostra as suas vendas e também sobre como esta indo o seu negocio com base nos graficos
+        </p>
+        <img src="~/img/ImagensTelaSobre/dashboard.png" alt="Dashboard">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Cadastro e edição de fornecedor</h4>
+        <p class="text-justify">
+            Ambas as telas têm o mesmo tipo de layout, começando pelo cadastro, tem campos obrigatórios, a diferença para a
+            edição é que na edição os campos já vêm preenchidos.
+        </p>
+        <img src="~/img/ImagensTelaSobre/cadastro_fornecedor.png" alt="cadastro e edição fornecedor">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Cadastro e edição de produto</h4>
+        <p class="text-justify">
+            Ambas as telas têm o mesmo tipo de layout, começando pelo cadastro, tem campos obrigatórios, a diferença para a
+            edição é que na edição os campos já vêm preenchidos.
+            Uma regra é que tanto a unidade de medida quanto o fornecedor não podem ter o valor “selecione”
+        </p>
+        <img src="~/img/ImagensTelaSobre/adicionar_produto.png" alt="adicionar produto ao estoque">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Cadastro e edição de cliente</h4>
+        <p class="text-justify">
+            Ambas as telas têm o mesmo tipo de layout, começando pelo cadastro, tem campos obrigatórios, a diferença para a
+            edição é que na edição os campos já vêm preenchidos.
+            Uma regra é que tanto o gênero quanto o estado não podem ter o valor “selecione”
+        </p>
+        <img src="~/img/ImagensTelaSobre/cadastro_cliente.png" alt="cadastro cliente">
+    </div>
+    <div>
+        <h4 class="titulosSobre">As páginas Index</h4>
+        <p class="text-justify">
+            Ambas são listas que mostram tudo o que está cadastrado naquela tabela
+            Em médias tabelas tem 5 colunas, algumas tem 4, a última coluna sempre vai ter as opções, as opções normais são
+            Editar | Detalhes | Excluir
+            Em páginas que podem ter cadastros, existe um + ao lado do nome da tabela, esse mais é funcional e redireciona para
+            o formulário de cadastro daquela tabela
+        </p>
+        <img src="~/img/ImagensTelaSobre/index1.png" alt="histórico de entradas">
+        <img src="~/img/ImagensTelaSobre/index2.png" alt="Index clientes">
+        <img src="~/img/ImagensTelaSobre/index3.png" alt="Index Fornecedor">
+        <p class="text-justify">
+            A tabela de estoque tem uma opção extra chamada ADICIONAR e é representada por um ícone de mais, ao apertar este
+            ícone a página redireciona para a página de adição daquele determinado produto.
+        </p>
+        <img src="~/img/ImagensTelaSobre/index_estoque.png" alt="Index estoque">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Página de adição de produto</h4>
+        <p class="text-justify">Nesta página é inserida a quantidade e quem é o fornecedor da quantidade.</p>
+        <img src="~/img/ImagensTelaSobre/Pagina_adicionar_produto.png" alt="Adicionar produto">
+    </div>
+    <div>
+        <h4 class="titulosSobre">Páginas de detalhes e exclusão</h4>
+        <p class="text-justify">As páginas de detalhes e exclusão são gêmeas</p>
+        <img src="~/img/ImagensTelaSobre/Pagina_exclusao.png" alt="Página exlusão do produto">
+        <p class="text-justify">
+            Em algumas páginas delete, se aquela informação fizer parte de uma venda, ela não poderá ser excluida ou se tiver
+            algum laço com outra tabela.
+        </p>
+        <img src="~/img/ImagensTelaSobre/confirma_exclusao.png" alt="Página confirmação exclusão">
+    </div>
+    <div>
+        <h4 class="titulosSobre">A página de carrinho</h4>
+        <p class="text-justify">
+            A primeira parte é a página de carrinho, nele tem a informação de valor total, a opção de selecionar o cliente e um
+            botão para finalizar
+            O carrinho é como uma venda que ainda não foi concluida, você vai adicionando e adicionando até decidir finalizala,
+            quando finalizar o carrinho se envazia e cria uma venda
+            Existe o botão adicionar produto, ao clicar nele a página é redirecionada até adicionar produto ao carrinho.
+        </p>
+        <img src="~/img/ImagensTelaSobre/carrinho.png" alt="carrinho">
+        <p class="text-justify">
+            Adicionar produto ao carrinho, aqui é escolhido o produto e a quantidade desse produto, a quantidade não pode ser
+            maior que a existente no estoque.
+        </p>
+        <img src="~/img/ImagensTelaSobre/adicionar_produto_ao_carrinho.png" alt="Adicionar produto ao carrinho" width="70%" height="40%">
+        <p class="text-justify">
+            Precauções, caso algum espertinho tente fazer adicionar um valor maior que está no estoque e consiga, na hora de
+            finalizar o carrinho ele checa se a quantidade é suficiente, se não for ele cancela a operação de venda e mostra um
+            erro na tela.
+        </p>
+    </div>
+</div>

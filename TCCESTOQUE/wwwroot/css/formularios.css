@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    background-image: unset !important;
+}
+
+
+
+select, option{
+    cursor: pointer;
+}
+
+h1, tr {
+    cursor: default;
+}
+
+#moldura {
+    display: flex;
+    height: 100%;
+    margin: 2rem 0;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.cadastro {
+    display: flex;
+    background-color: var(--white);
+    max-width: 51rem;
+    border-radius: 1rem;
+
+    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cadastro > h1 {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.cadastro > h3 {
+    display: flex;
+    text-align: center;
+    font-size: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0.4rem 0;
+}
+
+.campo2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    grid-gap: .8rem;
+    margin: .4rem 0;
+}
+
+.campo2 > div {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.campo2 div > input {
+    padding: 0 .3rem;
+    height: 2.2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+}
+
+.campo > input, select {
+    padding: 0 .3rem;
+    height: 2.2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.3);
+    outline: none;
+}
+
+.link-add * { 
+    transition: all .4s;
+    color: #212529 !important;
+}
+
+.link-add *:hover {
+    transition:all .4s;
+    color: #9370db !important;
+}
+
+.campo > input:focus{
+    border: 1px solid lightblue;
+}
+
+.campo2 div > input:focus {
+    border: 1px solid lightblue;
+}
+
+.just-cont-center {
+    grid-gap: 1rem;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.grow1 {
+    flex-grow: 1 !important;
+}
+
+.grow2 {
+    flex-grow: 2 !important;
+}
+
+.grow3 {
+    flex-grow: 3 !important;
+}
+
+@media(max-width: 600px){
+    .campo2{
+        display: block;
+        width: 80%;
+        margin: 0;
+    }
+
+    .campo2 > div {
+        max-width: 100%;
+        margin: 0.4rem 0;
+    }
+}

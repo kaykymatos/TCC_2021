@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-STOCK @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/geral.css" rel="stylesheet" />
+    <link href="~/css/formularios.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body class="bg-white">
+    <header>
+        <nav class="navbar navbar-expand-sm p-0 navbar-toggleable-sm navbar-dark bg-roxo">
+            <div class="container-fluid py-2">                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul id="nav-externo" class="navbar-nav flex-grow-1 nav-divider"> 
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light border-0" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light border-0" asp-area="" asp-controller="Home" asp-action="Manual">Manual</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light border-0" asp-controller="Vendedor" asp-action="Create">Cadastrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light border-0" asp-controller="Vendedor" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid p-0">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer border-top box-shadow bg-white text-center">
+        &copy; 2021 - E-STOCK
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-mask-plugin/jquery.mask.js" type="text/javascript"  asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

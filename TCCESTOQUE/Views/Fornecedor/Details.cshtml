@@ -1,0 +1,87 @@
+﻿@model TCCESTOQUE.Models.FornecedorModel
+
+@{
+    ViewData["Title"] = "- Detalhes fornecedor";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+
+<h1>Detalhes</h1>
+
+<h4>@Model.NomeFantasia</h4>
+<hr />
+<dl class="descricao">
+    <div>
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeFantasia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeFantasia)
+        </dd>
+    </div>
+    <div>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cnpj)
+        </dd>
+    </div>
+    <div>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </div>
+    @if(Model.Telefone != null) { 
+    <div>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+    </div>
+    }
+    <div>
+        <dt>
+            Cep
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Cep)
+        </dd>
+    </div>
+    <div>
+        <dt>
+            Cidade
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Localidade) - @Html.DisplayFor(model => model.Endereco.Uf)
+        </dd>
+    </div>
+    <div>
+        <dt>
+            Bairro
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Bairro)
+        </dd>
+    </div>
+    <div>
+        <dt>
+            Endereço
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.Logradouro)
+            @Html.DisplayFor(model => model.Endereco.Complemento)
+            @Html.DisplayFor(model => model.Endereco.Numero)
+        </dd>
+    </div>
+</dl>
+<div>
+    <a class="btn btn-roxo" asp-action="EditFull" asp-route-id="@Model.FornecedorId">Editar</a> |
+    <a class="btn btn-cinza" asp-action="Index">
+        Voltar
+    </a>
+</div>

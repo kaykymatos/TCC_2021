@@ -1,0 +1,12 @@
+﻿@{
+    if (ViewBag.autenticado)
+    {
+        Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+        <partial name="/Views/Home/_homeLogado.cshtml" />
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout-Externo.cshtml";
+        <partial name="/Views/Home/_home.cshtml" />
+    }   
+}

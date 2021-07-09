@@ -1,0 +1,38 @@
+﻿@model TCCESTOQUE.Models.VendaItensModel
+
+@{
+    ViewData["Title"] = "- Editar item";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+<div class="container p-5" id="moldura">
+    <form class="col-md-10" asp-action="EditItemCarrinho">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="VendaItensId" />
+        <input type="hidden" asp-for="VendedorId" value="@ViewBag.usuarioId" />
+        <input type="hidden" asp-for="CarrinhoId" value="@ViewBag.CarrinhoId" />
+        <div class="form-group ">
+            <label asp-for="ProdutoId">Produto</label>
+            <select class="form-control col-md-12" asp-for="ProdutoId" asp-items="ViewBag.ProdutoId"></select>
+            <span asp-validation-for="ProdutoId" class="text-danger"></span>
+        </div>
+        <div class="form-group ">
+            <label asp-for="Quantidade"></label>
+            <input class="form-control col-md-12" asp-for="Quantidade" />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+        <div class="row p-3">
+            <a class="btn-mold btn-cinza ml-0 mr-3" asp-controller="Carrinho" asp-action="Details" asp-route-id="@ViewBag.usuarioId">
+                Voltar
+            </a>
+            <input type="submit" value="Salvar" class="btn-mold btn-roxo m-0" />
+        </div>
+    </form>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

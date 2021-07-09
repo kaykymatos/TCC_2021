@@ -1,0 +1,57 @@
+﻿@model TCCESTOQUE.Models.ProdutoModel
+
+@{
+    ViewData["Title"] = "- Editar produto";
+    Layout = "~/Views/Shared/_Layout-Interno.cshtml";
+}
+<div id="moldura">
+    <form class="container" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="VendedorId" value="@ViewBag.usuarioId" />
+        <input type="hidden" asp-for="ProdutoId" />
+        <h1>
+            Editar produto
+        </h1>
+        <div class="form-group">
+            <label asp-for="Nome" class="obrigatorio">Nome</label>
+            <input class="form-control" asp-for="Nome"/>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descricao">Descrição</label>
+            <input class="form-control" asp-for="Descricao"/>
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Custo" class="obrigatorio">Custo</label>
+            <input class="form-control" asp-for="Custo"/>
+            <span asp-validation-for="Custo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Valor" class="obrigatorio">Valor unitario</label>
+            <input class="form-control" asp-for="Valor"/>
+            <span asp-validation-for="Valor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UnidadeMedida" class="obrigatorio">Unidade de medida</label>
+            <select class="form-control" asp-for="UnidadeMedida"  asp-items="@ViewBag.UnidadeMedida"></select>
+            <span asp-validation-for="UnidadeMedida" class="text-danger"></span>
+        </div>
+        <div class="row p-3">
+            <a asp-action="Index" class="btn-mold btn-cinza mr-3 ml-0">
+                Voltar
+            </a>
+            <input type="submit" value="Salvar" class="btn-mold btn-roxo m-0" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)?(?:,\d+)?$/.test(value);
+        }
+    </script>
+}
